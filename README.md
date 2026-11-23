@@ -23,7 +23,9 @@ sha256sum /output/entry.png asset.jpg
 
 Both digests must match; the program itself also checks size and SHA-256 after
 every copy and exits non-zero with a clear error if `asset.jpg` is missing,
-empty, or not a JPEG file.
+empty, or not a JPEG file. Before copying it also verifies the image is
+within the competition's caps (at most 1 MiB and 1024 by 1024 pixels) by
+reading the JPEG dimensions from its SOF marker.
 
 ---
 
